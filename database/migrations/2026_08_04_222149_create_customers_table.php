@@ -13,8 +13,9 @@ return new class extends Migration
     {
         Schema::create('customers', function (Blueprint $table) {
             $table->id();
-            $table->string('customer_number')->unique();
+            $table->string('customer_number')->unique()->nullable();
             $table->string('name');
+            $table->unsignedBigInteger('balance')->default(0);
             $table->text('address')->nullable();
             $table->string('phone')->nullable();
             $table->boolean('is_active')->default(true);
@@ -30,3 +31,4 @@ return new class extends Migration
         Schema::dropIfExists('customers');
     }
 };
+

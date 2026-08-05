@@ -13,9 +13,10 @@ return new class extends Migration
     {
         Schema::create('withdrawal_transactions', function (Blueprint $table) {
             $table->id();
+            $table->string('transaction_number')->unique()->nullable();
             $table->foreignId('customer_id')->constrained('customers')->cascadeOnDelete();
             $table->date('transaction_date');
-            $table->decimal('amount', 14, 2)->default(0);
+            $table->unsignedBigInteger('amount')->default(0);
             $table->text('notes')->nullable();
             $table->timestamp('created_at')->useCurrent();
         });

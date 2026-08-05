@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('deposit_transactions', function (Blueprint $table) {
             $table->id();
-            $table->string('transaction_number')->unique();
+            $table->string('transaction_number')->unique()->nullable();
             $table->foreignId('customer_id')->constrained('customers')->cascadeOnDelete();
             $table->date('transaction_date');
-            $table->decimal('total_amount', 14, 2)->default(0);
+            $table->unsignedBigInteger('total_amount')->default(0);
             $table->text('notes')->nullable();
             $table->timestamp('created_at')->useCurrent();
         });
