@@ -5,6 +5,7 @@ namespace App\Filament\Resources\Ledgers\Pages;
 use App\Filament\Resources\Ledgers\LedgerResource;
 use Filament\Actions\EditAction;
 use Filament\Resources\Pages\ViewRecord;
+use App\Filament\Resources\Ledgers\Widgets\LedgerRecordOverview;
 
 class ViewLedger extends ViewRecord
 {
@@ -14,6 +15,13 @@ class ViewLedger extends ViewRecord
     {
         return [
             EditAction::make(),
+        ];
+    }
+
+    protected function getHeaderWidgets(): array
+    {
+        return [
+            LedgerRecordOverview::class,
         ];
     }
 }

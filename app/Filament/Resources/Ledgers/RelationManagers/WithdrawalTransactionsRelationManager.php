@@ -34,6 +34,7 @@ class WithdrawalTransactionsRelationManager extends RelationManager
 
                 \Filament\Forms\Components\DatePicker::make('transaction_date')
                     ->label('Tanggal Transaksi')
+                    ->default(now())
                     ->required(),
 
                 \Filament\Forms\Components\TextInput::make('amount')

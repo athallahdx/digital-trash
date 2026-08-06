@@ -32,6 +32,7 @@ class WithdrawalTransactionForm
                     ->required(),
                 DatePicker::make('transaction_date')
                     ->label('Tanggal Transaksi')
+                    ->default(now())
                     ->required(),
                 TextInput::make('amount')
                     ->label('Jumlah Penarikan')

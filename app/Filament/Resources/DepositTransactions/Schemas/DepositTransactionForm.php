@@ -28,6 +28,7 @@ class DepositTransactionForm
                     ->required(),
                 DatePicker::make('transaction_date')
                     ->label('Tanggal Transaksi')
+                    ->default(now())
                     ->required(),
                 TextInput::make('total_amount')
                     ->label('Jumlah Setoran')
