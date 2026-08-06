@@ -20,9 +20,9 @@ class CustomerFactory extends Factory
      * @return array
      */
     
-    public function definition()
+    public function definition(): array
     {
-        $prefix = $this->faker->randomElement([
+        $prefix = fake()->randomElement([
             '0811', '0812', '0813',
             '0821', '0822', '0823',
             '0851', '0852', '0853',
@@ -30,14 +30,14 @@ class CustomerFactory extends Factory
             '0877', '0878',
             '0881', '0882', '0883', '0887', '0888',
             '0895', '0896', '0897', '0898', '0899',
-        ]); 
+        ]);
 
         return [
-            'name' => $this->faker->name(),
+            'name' => fake()->name(),
             'balance' => 0,
-            'address' => $this->faker->address(),
-            'phone' => $prefix . $this->faker->numerify('########'),
-            'is_active' => $this->faker->boolean(80),
+            'address' => fake()->address(),
+            'phone' => $prefix . fake()->numerify('########'),
+            'is_active' => fake()->boolean(80),
         ];
     }
 }
