@@ -51,11 +51,9 @@ class UserResource extends Resource
         ];
     }
 
-    public static function getWidgets(): array
+    public static function table(Table $table): Table
     {
-        return [
-            TotalAdminOverview::class,
-        ];
+        return UsersTable::configure($table);
     }
 
     public static function getPages(): array
