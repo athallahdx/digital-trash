@@ -40,15 +40,20 @@ class DepositTransaction extends Model
         parent::boot();
 
         static::created(function (DepositTransaction $transaction) {
-            // Generate transaction number from the auto-increment ID
             $transaction->updateQuietly([
                 'transaction_number' => 'STR' . str_pad($transaction->id, 6, '0', STR_PAD_LEFT),
             ]);
 
-            // Update customer balance
             if ($transaction->customer_id) {
                 Customer::whereKey($transaction->customer_id)
                     ->increment('balance', $transaction->total_amount);
+            }
+        });
+
+        static::deleted(function (DepositTransaction $transaction) {
+            if ($transaction->customer_id) {
+                Customer::whereKey($transaction->customer_id)
+                    ->decrement('balance', $transaction->total_amount);
             }
         });
     }

@@ -18,7 +18,7 @@ class CustomerForm
                     ->disabled(fn (string $operation) => $operation === 'create')
                     ->dehydrated(fn (string $operation) => $operation !== 'create')
                     ->helperText(fn (string $operation) => $operation === 'create'
-                        ?'Nomor rekening akan otomatis dibuat oleh sistem. Anda dapat mengubahnya setelah data berhasil dibuat.'),
+                        ?'Nomor rekening akan otomatis dibuat oleh sistem. Anda dapat mengubahnya setelah data berhasil dibuat.': null),
                 TextInput::make('name')
                     ->label('Nama')
                     ->required(),

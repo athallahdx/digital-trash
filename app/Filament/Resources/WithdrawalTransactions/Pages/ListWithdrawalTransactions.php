@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources\WithdrawalTransactions\Pages;
 
+use App\Filament\Resources\WithdrawalTransactions\Widgets\WithdrawalOverview;
 use App\Filament\Resources\WithdrawalTransactions\WithdrawalTransactionResource;
 use Filament\Actions\CreateAction;
 use Filament\Resources\Pages\ListRecords;
@@ -14,6 +15,13 @@ class ListWithdrawalTransactions extends ListRecords
     {
         return [
             CreateAction::make(),
+        ];
+    }
+
+    protected function getHeaderWidgets(): array
+    {
+        return [
+            WithdrawalOverview::class,
         ];
     }
 }

@@ -5,6 +5,7 @@ namespace App\Filament\Resources\DepositTransactions\Pages;
 use App\Filament\Resources\DepositTransactions\DepositTransactionResource;
 use Filament\Actions\CreateAction;
 use Filament\Resources\Pages\ListRecords;
+use App\Filament\Resources\DepositTransactions\Widgets\DepositOverview;
 
 class ListDepositTransactions extends ListRecords
 {
@@ -14,6 +15,13 @@ class ListDepositTransactions extends ListRecords
     {
         return [
             CreateAction::make(),
+        ];
+    }
+
+    protected function getHeaderWidgets(): array
+    {
+        return [
+            DepositOverview::class,
         ];
     }
 }

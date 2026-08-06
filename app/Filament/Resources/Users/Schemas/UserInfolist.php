@@ -35,6 +35,7 @@ class UserInfolist
                     ->label('Diperbarui Pada')
                     ->dateTime()
                     ->placeholder('-'),
-            ]);
+            ])
+            ;
     }
 }

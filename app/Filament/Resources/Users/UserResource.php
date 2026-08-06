@@ -9,8 +9,10 @@ use App\Filament\Resources\Users\Pages\ViewUser;
 use App\Filament\Resources\Users\Schemas\UserForm;
 use App\Filament\Resources\Users\Schemas\UserInfolist;
 use App\Filament\Resources\Users\Tables\UsersTable;
+use App\Filament\Resources\Users\Widgets\TotalAdminOverview;
 use App\Models\User;
 use BackedEnum;
+use App\Livewire\TotalAdminStats;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
@@ -42,15 +44,17 @@ class UserResource extends Resource
         return UserInfolist::configure($schema);
     }
 
-    public static function table(Table $table): Table
-    {
-        return UsersTable::configure($table);
-    }
-
     public static function getRelations(): array
     {
         return [
             //
+        ];
+    }
+
+    public static function getWidgets(): array
+    {
+        return [
+            TotalAdminOverview::class,
         ];
     }
 

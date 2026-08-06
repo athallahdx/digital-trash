@@ -54,7 +54,6 @@ class WithdrawalTransaction extends Model
         });
 
         static::created(function (WithdrawalTransaction $transaction) {
-            // Generate transaction number from the auto-increment ID
             $transaction->updateQuietly([
                 'transaction_number' => 'PNR' . str_pad($transaction->id, 6, '0', STR_PAD_LEFT),
             ]);
@@ -69,6 +68,19 @@ class WithdrawalTransaction extends Model
             }
 
             $customer->decrement('balance', $transaction->amount);
+        });
+
+        static::deleted(function (WithdrawalTransaction $transaction) {
+            if (! $transaction->customer_id) {
+                return;
+            }
+
+            $customer = Customer::find($transaction->customer_id);
+            if (! $customer) {
+                return;
+            }
+
+            $customer->increment('balance', $transaction->amount);
         });
     }
 }
