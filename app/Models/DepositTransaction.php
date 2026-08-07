@@ -50,6 +50,17 @@ class DepositTransaction extends Model
             }
         });
 
+        static::updated(function (DepositTransaction $transaction) {
+            if ($transaction->isDirty('total_amount') && $transaction->customer_id) {
+                $originalAmount = $transaction->getOriginal('total_amount');
+                $newAmount = $transaction->total_amount;
+                $difference = $newAmount - $originalAmount;
+
+                Customer::whereKey($transaction->customer_id)
+                    ->increment('balance', $difference);
+            }
+        });
+
         static::deleted(function (DepositTransaction $transaction) {
             if ($transaction->customer_id) {
                 Customer::whereKey($transaction->customer_id)

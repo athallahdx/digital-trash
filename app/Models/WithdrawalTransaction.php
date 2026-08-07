@@ -70,6 +70,29 @@ class WithdrawalTransaction extends Model
             $customer->decrement('balance', $transaction->amount);
         });
 
+        static::updated(function (WithdrawalTransaction $transaction) {
+            if (! $transaction->customer_id) {
+                return;
+            }
+
+            $customer = Customer::find($transaction->customer_id);
+            if (! $customer) {
+                return;
+            }
+
+            if ($transaction->isDirty('amount')) {
+                $originalAmount = $transaction->getOriginal('amount');
+                $newAmount = $transaction->amount;
+                $difference = $newAmount - $originalAmount;
+
+                if ($difference > 0 && $customer->balance < $difference) {
+                    throw new \RuntimeException('Insufficient balance for the updated amount.');
+                }
+
+                $customer->decrement('balance', $difference);
+            }
+        });
+
         static::deleted(function (WithdrawalTransaction $transaction) {
             if (! $transaction->customer_id) {
                 return;
