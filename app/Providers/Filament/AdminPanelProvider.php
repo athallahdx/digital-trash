@@ -27,6 +27,9 @@ class AdminPanelProvider extends PanelProvider
             ->id('admin')
             ->path('admin')
             ->login()
+            ->brandLogoHeight('5rem')
+            ->brandName('Bank Sampah Jati Sabrang')
+            ->brandLogo('/favicon.svg')
             ->colors([
                 'primary' => Color::Amber,
             ])
