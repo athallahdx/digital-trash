@@ -7,9 +7,12 @@
         <title>Bank Sampah Jati Sabrang - Desa Bodaskarangjati</title>
         <meta name="description" content="Bank Sampah Jati Sabrang, Desa Bodaskarangjati. Ayo kelola sampah jadi berkah bersama warga.">
 
-        <link rel="icon" href="/favicon.ico" sizes="any">
-        <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+        <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <link rel="shortcut icon" href="/favicon.ico" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+        <meta name="apple-mobile-web-app-title" content="Bank Sampah Jati Sabrang" />
+        <link rel="manifest" href="/site.webmanifest" />
 
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600,700" rel="stylesheet" />
@@ -27,11 +30,8 @@
         <header class="sticky top-0 z-50 bg-white/90 backdrop-blur border-b border-gray-100">
             <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
                 <a href="#" class="flex items-center gap-2 font-semibold text-green-700">
-                    <span class="inline-flex h-9 w-9 items-center justify-center rounded-full bg-green-600 text-white">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M3 6h18M8 6V4a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v2m2 0-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6" />
-                            <path d="M10 11v6M14 11v6" />
-                        </svg>
+                    <span class="inline-flex h-9 w-9 items-center justify-center rounded-full text-white">
+                        <img src="/main-logo.png" alt="Logo Bank Sampah Jati Sabrang" class="h-9 w-9">
                     </span>
                     <span class="leading-tight">
                         <span class="block text-sm sm:text-base">Bank Sampah Jati Sabrang</span>
